@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CarMapVC.swift
 //  MyAwesomeRide
 //
 //  Created by Vibhor Mehrotra on 19/02/22.
@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class CarMapVC: BaseVC {
+    static let storyboardID = "CarMapVC"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-

@@ -13,11 +13,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        
+        // Set up the Tab Bar Controller
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [CarListWireframe.carListVC(), CarMapWireframe.carMapVC()]
+        
+        // Make the Tab Bar Controller the root view controller
+        window.rootViewController = tabBarController
+        
+        self.window = window
+        window.makeKeyAndVisible()
     }
+    
+//    private func urlSession() -> URLSession{
+//        let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+//        let diskCacheURL = cachesURL.appendingPathComponent("DownloadCache")
+//        let cache = URLCache(memoryCapacity: 10_000_000, diskCapacity: 1_000_000_000, directory: diskCacheURL)
+//        let config = URLSessionConfiguration.default
+//        config.urlCache = cache
+//        return URLSession(configuration: config)
+//    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
