@@ -38,8 +38,4 @@ extension CarAnnotation: MKAnnotation {
     var subtitle: String? {
         return car.licensePlate
     }
-    
-    var imageURL: String? {
-        return car.carImageUrl
-    }
 }
