@@ -18,6 +18,6 @@ struct Constants{
     
     //MARK: Others
     static let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    static let placeholderImage = UIImage(named: "ridePlaceholder")
+    static let placeholderImage = #imageLiteral(resourceName: "ridePlaceholder.png")
     
 }

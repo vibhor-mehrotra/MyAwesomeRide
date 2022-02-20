@@ -8,7 +8,7 @@
 import UIKit
 
 final class CarListWireframe{
-    static func carListVC() -> CarListVC{
+    static func carListVC(with networkServices: NetworkServices) -> CarListVC{
         
         /// Instantiate VC
         let listVC = (Constants.mainStoryboard.instantiateViewController(withIdentifier: CarListVC.storyboardID) as! CarListVC)
@@ -16,7 +16,7 @@ final class CarListWireframe{
         listVC.tabBarItem.image = UIImage(systemName: "list.bullet")
         
         /// Instantiate VM
-        let listVM = CarListViewModel(networkServices: NetworkServices(), delegate: listVC)
+        let listVM = CarListViewModel(networkServices: networkServices, delegate: listVC)
         
         /// Set listVM as listVC's viewModel
         listVC.viewModel = listVM

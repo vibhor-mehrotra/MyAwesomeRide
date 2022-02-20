@@ -16,25 +16,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        // Set up the Tab Bar Controller
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [CarListWireframe.carListVC(), CarMapWireframe.carMapVC()]
+        /// Set up NetworkSession with custom urlSession. By using cache Directory in our custom urlSession, we make sure that the data won't be backed by iCloud / iTunes.
+        let networkServices = NetworkServices(urlSession: urlSession())
         
-        // Make the Tab Bar Controller the root view controller
+        /// Set up the Tab Bar Controller
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [CarListWireframe.carListVC(with: networkServices), CarMapWireframe.carMapVC(with: networkServices)]
+        
+        /// Make the Tab Bar Controller the root view controller
         window.rootViewController = tabBarController
         
         self.window = window
         window.makeKeyAndVisible()
     }
     
-//    private func urlSession() -> URLSession{
-//        let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-//        let diskCacheURL = cachesURL.appendingPathComponent("DownloadCache")
-//        let cache = URLCache(memoryCapacity: 10_000_000, diskCapacity: 1_000_000_000, directory: diskCacheURL)
-//        let config = URLSessionConfiguration.default
-//        config.urlCache = cache
-//        return URLSession(configuration: config)
-//    }
+    private func urlSession() -> URLSession{
+        let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let diskCacheURL = cachesURL.appendingPathComponent("DownloadCache")
+        let cache = URLCache(memoryCapacity: 10_000_000, diskCapacity: 1_000_000_000, directory: diskCacheURL)
+        let config = URLSessionConfiguration.default
+        config.urlCache = cache
+        return URLSession(configuration: config)
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

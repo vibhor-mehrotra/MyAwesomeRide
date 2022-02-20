@@ -10,12 +10,12 @@ import UIKit
 final class CarTVCell: UITableViewCell {
     static let reuseID = "CarTVCell"
     
-    @IBOutlet private weak var carImageView: UIImageView!
-    @IBOutlet private weak var owner: UILabel!
-    @IBOutlet private weak var modelName: UILabel!
-    @IBOutlet private weak var fuelType: UILabel!
-    @IBOutlet private weak var cleanliness: UILabel!
-    @IBOutlet private weak var transmission: UILabel!
+    @IBOutlet private var carImageView: UIImageView!
+    @IBOutlet private var owner: UILabel!
+    @IBOutlet private var modelName: UILabel!
+    @IBOutlet private var fuelType: UILabel!
+    @IBOutlet private var cleanliness: UILabel!
+    @IBOutlet private var transmission: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

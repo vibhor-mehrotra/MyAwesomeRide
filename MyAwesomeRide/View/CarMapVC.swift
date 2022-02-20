@@ -11,7 +11,7 @@ import MapKit
 final class CarMapVC: CarDisplayBaseVC {
     static let storyboardID = "CarMapVC"
     
-    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private var mapView: MKMapView!
     var viewModel: CarMapViewModelProtocol!
     
     override func viewDidLoad() {
@@ -53,7 +53,6 @@ extension CarMapVC: MKMapViewDelegate {
         guard let carAnnotation = annotation as? CarAnnotation else {
             return nil
         }
-
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: CarAnnotationView.reuseID) as? CarAnnotationView
         if annotationView == nil {
             annotationView = CarAnnotationView(annotation: carAnnotation, reuseIdentifier: CarAnnotationView.reuseID)

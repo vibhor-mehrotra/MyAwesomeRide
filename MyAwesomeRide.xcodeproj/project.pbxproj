@@ -128,8 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				51F09E1227C186E5005128B5 /* Models */,
-				51F09DF927C0DBC7005128B5 /* Map */,
-				51F09DF827C0DBBD005128B5 /* List */,
+				51F09DF827C0DBBD005128B5 /* View */,
+				51F09DF927C0DBC7005128B5 /* ViewModel */,
+				51F09E1D27C2C81C005128B5 /* Wireframe */,
+				51F09E1B27C2C74A005128B5 /* Network */,
 				51F09E0627C0FCC8005128B5 /* Utility */,
 				51F09DC827C0C3F6005128B5 /* AppDelegate.swift */,
 				51F09DCA27C0C3F6005128B5 /* SceneDelegate.swift */,
@@ -137,8 +139,6 @@
 				51F09DD127C0C3F8005128B5 /* Assets.xcassets */,
 				51F09DD327C0C3F8005128B5 /* LaunchScreen.storyboard */,
 				51F09DD627C0C3F8005128B5 /* Info.plist */,
-				51F09DFA27C0DC79005128B5 /* CarDisplayBaseVC.swift */,
-				51F09E1527C229C0005128B5 /* CarDisplayBaseViewModel.swift */,
 			);
 			path = MyAwesomeRide;
 			sourceTree = "<group>";
@@ -160,35 +160,31 @@
 			path = MyAwesomeRideUITests;
 			sourceTree = "<group>";
 		};
-		51F09DF827C0DBBD005128B5 /* List */ = {
+		51F09DF827C0DBBD005128B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51F09DFA27C0DC79005128B5 /* CarDisplayBaseVC.swift */,
 				51F09DFC27C0E002005128B5 /* CarListVC.swift */,
-				51F09E0427C0FC14005128B5 /* CarListViewModel.swift */,
-				51F09DFE27C0E048005128B5 /* CarListWireframe.swift */,
-				51F09E0E27C1523A005128B5 /* CarTVCell.swift */,
+				51F09E0027C0E31C005128B5 /* CarMapVC.swift */,
+				51F09E1C27C2C7F3005128B5 /* Subviews */,
 			);
-			path = List;
+			path = View;
 			sourceTree = "<group>";
 		};
-		51F09DF927C0DBC7005128B5 /* Map */ = {
+		51F09DF927C0DBC7005128B5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				51F09E0027C0E31C005128B5 /* CarMapVC.swift */,
-				51F09E0227C0E362005128B5 /* CarMapWireframe.swift */,
+				51F09E1527C229C0005128B5 /* CarDisplayBaseViewModel.swift */,
+				51F09E0427C0FC14005128B5 /* CarListViewModel.swift */,
 				51F09E1327C22939005128B5 /* CarMapViewModel.swift */,
-				51F09E1727C22FC0005128B5 /* CarAnnotation.swift */,
-				51F09E1927C24BC3005128B5 /* CarAnnotationView.swift */,
 			);
-			path = Map;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		51F09E0627C0FCC8005128B5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				51F09E0727C0FCE6005128B5 /* NetworkServices.swift */,
 				51F09E0C27C14C11005128B5 /* Constants.swift */,
-				51F09E1027C17DD5005128B5 /* UIImageView+ImageServices.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -197,8 +193,36 @@
 			isa = PBXGroup;
 			children = (
 				51F09E0A27C1451F005128B5 /* Car.swift */,
+				51F09E1727C22FC0005128B5 /* CarAnnotation.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		51F09E1B27C2C74A005128B5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				51F09E0727C0FCE6005128B5 /* NetworkServices.swift */,
+				51F09E1027C17DD5005128B5 /* UIImageView+ImageServices.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		51F09E1C27C2C7F3005128B5 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				51F09E1927C24BC3005128B5 /* CarAnnotationView.swift */,
+				51F09E0E27C1523A005128B5 /* CarTVCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		51F09E1D27C2C81C005128B5 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				51F09DFE27C0E048005128B5 /* CarListWireframe.swift */,
+				51F09E0227C0E362005128B5 /* CarMapWireframe.swift */,
+			);
+			path = Wireframe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
