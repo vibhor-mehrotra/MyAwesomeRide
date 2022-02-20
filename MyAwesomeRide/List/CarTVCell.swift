@@ -21,14 +21,14 @@ final class CarTVCell: UITableViewCell {
         super.awakeFromNib()
         
         /// Set placeholder image
-        carImageView.image = #imageLiteral(resourceName: "ridePlaceholder.png")
+        carImageView.image = Constants.placeholderImage
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         /// Reset the values before reuse
-        carImageView.image = #imageLiteral(resourceName: "ridePlaceholder.png")
+        carImageView.image = Constants.placeholderImage
         owner.text = nil
         modelName.text = nil
         fuelType.text = nil
@@ -37,7 +37,7 @@ final class CarTVCell: UITableViewCell {
     }
     
     func configure(with data: Car){
-        carImageView.loadImage(url: data.carImageUrl)
+        carImageView.loadImage(url: data.carImageUrl, placeholderImage: Constants.placeholderImage)
         owner.attributedText = attributedString(with: Car.DisplayKeys.owner.rawValue, value: data.name ?? "")
         modelName.attributedText = attributedString(with: Car.DisplayKeys.modelName.rawValue, value: data.modelName)
         fuelType.attributedText = attributedString(with: Car.DisplayKeys.fuelType.rawValue, value: data.fuelType?.displayTitle)

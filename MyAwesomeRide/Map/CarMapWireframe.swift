@@ -9,10 +9,16 @@ import UIKit
 
 final class CarMapWireframe{
     static func carMapVC() -> CarMapVC{
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mapVC = (storyboard.instantiateViewController(withIdentifier: CarMapVC.storyboardID) as! CarMapVC)
+        let mapVC = (Constants.mainStoryboard.instantiateViewController(withIdentifier: CarMapVC.storyboardID) as! CarMapVC)
         mapVC.tabBarItem.title = "Map"
         mapVC.tabBarItem.image = UIImage(systemName: "map")
+        
+        /// Instantiate VM
+        let mapVM = CarMapViewModel(networkServices: NetworkServices(), delegate: mapVC)
+        
+        /// Set mapVM as mapVC's viewModel
+        mapVC.viewModel = mapVM
+        
         return mapVC
     }
 }

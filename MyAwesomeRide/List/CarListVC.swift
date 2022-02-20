@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CarListVC: BaseVC{
+final class CarListVC: CarDisplayBaseVC{
     static let storyboardID = "CarListVC"
     
     @IBOutlet private var tableView: UITableView!
@@ -39,7 +39,7 @@ extension CarListVC: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-extension CarListVC: CarListViewModelDelegate{
+extension CarListVC: CarDisplayViewModelDelegate{
     func showLoader(){
         showActivityIndicator()
     }

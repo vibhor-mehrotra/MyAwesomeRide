@@ -8,7 +8,8 @@
 import UIKit
 
 extension UIImageView{
-    func loadImage(url: String?){
+    func loadImage(url: String?, placeholderImage: UIImage?){
+        self.image = placeholderImage
         guard let urlStr = url, let url = URL(string: urlStr) else {
             return
         }

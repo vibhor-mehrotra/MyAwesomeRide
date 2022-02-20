@@ -7,12 +7,11 @@
 
 import UIKit
 
-class CarListWireframe{
+final class CarListWireframe{
     static func carListVC() -> CarListVC{
         
         /// Instantiate VC
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let listVC = (storyboard.instantiateViewController(withIdentifier: CarListVC.storyboardID) as! CarListVC)
+        let listVC = (Constants.mainStoryboard.instantiateViewController(withIdentifier: CarListVC.storyboardID) as! CarListVC)
         listVC.tabBarItem.title = "List"
         listVC.tabBarItem.image = UIImage(systemName: "list.bullet")
         

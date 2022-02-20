@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEk-HP-Uva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81.159420289855078" y="-25.446428571428569"/>
+            <point key="canvasLocation" x="-626" y="-812"/>
         </scene>
         <!--Car MapVC-->
         <scene sceneID="ZWo-Jm-5nJ">
@@ -121,17 +121,34 @@
                     <view key="view" contentMode="scaleToFill" id="qgs-pp-LYF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xK8-5g-N1x">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ULc-VK-dNh" id="8GD-RM-Xia"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jJ8-1P-7Jb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xK8-5g-N1x" secondAttribute="bottom" id="1c4-et-3fT"/>
+                            <constraint firstItem="xK8-5g-N1x" firstAttribute="top" secondItem="qgs-pp-LYF" secondAttribute="top" id="VJ2-8p-igY"/>
+                            <constraint firstItem="jJ8-1P-7Jb" firstAttribute="trailing" secondItem="xK8-5g-N1x" secondAttribute="trailing" id="XxK-pA-yOI"/>
+                            <constraint firstItem="xK8-5g-N1x" firstAttribute="leading" secondItem="jJ8-1P-7Jb" secondAttribute="leading" id="nIt-HO-2GA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="xK8-5g-N1x" id="GK3-af-9x7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umR-oa-pSt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="-25"/>
+            <point key="canvasLocation" x="-626.08695652173913" y="-25.446428571428569"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ridePlaceholder" width="1792" height="825"/>
+        <image name="ridePlaceholder" width="75" height="75"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

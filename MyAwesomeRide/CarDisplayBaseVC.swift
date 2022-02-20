@@ -1,5 +1,5 @@
 //
-//  BaseVC.swift
+//  CarDisplayBaseVC.swift
 //  MyAwesomeRide
 //
 //  Created by Vibhor Mehrotra on 19/02/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseVC: UIViewController {
+class CarDisplayBaseVC: UIViewController {
     var bgView: UIView!
     
     override func viewDidLoad() {

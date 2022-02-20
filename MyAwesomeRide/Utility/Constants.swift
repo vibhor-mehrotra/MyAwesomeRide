@@ -5,7 +5,7 @@
 //  Created by Vibhor Mehrotra on 19/02/22.
 //
 
-import Foundation
+import UIKit
 
 struct Constants{
     //MARK: URL Params
@@ -15,5 +15,9 @@ struct Constants{
     static let errorTitle = "Error"
     static let defaultErrorMessage = "Something went wrong. Please try again."
     static let firstBtnTitle = "OK"
+    
+    //MARK: Others
+    static let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    static let placeholderImage = UIImage(named: "ridePlaceholder")
     
 }
