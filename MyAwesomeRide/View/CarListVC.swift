@@ -20,6 +20,7 @@ final class CarListVC: CarDisplayBaseVC{
     }
 }
 
+//MARK: - UITableView Datasource Methods
 extension CarListVC: UITableViewDataSource, UITableViewDelegate{
     public func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
@@ -39,6 +40,7 @@ extension CarListVC: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
+//MARK: - CarDisplayViewModelDelegate Methods
 extension CarListVC: CarDisplayViewModelDelegate{
     func showLoader(){
         showActivityIndicator()

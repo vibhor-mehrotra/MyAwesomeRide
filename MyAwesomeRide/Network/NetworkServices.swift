@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Custom Error type for passing Network related errors
 enum NetworkError: LocalizedError{
     case invalidURL(message: String)
     case noResponse(message: String)
@@ -24,6 +25,7 @@ protocol NetworkServicesProtocol{
     func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void)
 }
 
+/// NetworkServicesProtocol extension to provide default implementation for scheme and queryParams
 extension NetworkServicesProtocol{
     func fetchData(for scheme: String = Constants.scheme, host: String, path: String, queryParams: [String: String] = [:], callBack: @escaping (Result<Data, NetworkError>) -> Void){
         fetchData(for: scheme, host: host, path: path, queryParams: queryParams, callBack: callBack)

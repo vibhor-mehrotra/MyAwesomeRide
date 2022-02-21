@@ -25,6 +25,7 @@ final class CarMapVC: CarDisplayBaseVC {
     }
 }
 
+//MARK: - CarDisplayViewModelDelegate Methods
 extension CarMapVC: CarDisplayViewModelDelegate{
     func showLoader(){
         showActivityIndicator()

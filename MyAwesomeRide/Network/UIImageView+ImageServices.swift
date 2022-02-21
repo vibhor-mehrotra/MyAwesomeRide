@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Image download and caching services
 extension UIImageView{
     func loadImage(url: String?, placeholderImage: UIImage?){
         self.image = placeholderImage

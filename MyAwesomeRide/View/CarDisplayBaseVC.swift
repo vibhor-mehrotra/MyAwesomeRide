@@ -14,12 +14,12 @@ class CarDisplayBaseVC: UIViewController {
         super.viewDidLoad()
     }
     
-    //Activity Indicator
+    /// Activity Indicator
     func showActivityIndicator(title: String? = "Loading..") {
         if bgView == nil{
             self.bgView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
             
-            // blur effect
+            /// blur effect
             if !UIAccessibility.isReduceTransparencyEnabled {
                 self.bgView.backgroundColor = .clear
                 
@@ -58,19 +58,19 @@ class CarDisplayBaseVC: UIViewController {
         }
     }
     
-    //Alert view
+    /// Alert view
     func showAlertView(title: String = Constants.errorTitle, message: String, firstBtnTitle: String = Constants.firstBtnTitle, firstBtnAction: @escaping (UIAlertAction) -> Void = { _ in}, secondBtnTitle: String? = nil, secondBtnAction: @escaping ((UIAlertAction) -> Void) = { _ in}, preferredStyle: UIAlertController.Style = .alert) {
         
-        // create the alert
+        /// create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         
-        // add the actions (buttons)
+        /// add the actions (buttons)
         alert.addAction(UIAlertAction(title: firstBtnTitle, style: .default, handler: firstBtnAction))
         if let secBtnTitle = secondBtnTitle{
             alert.addAction(UIAlertAction(title: secBtnTitle, style: .default, handler: secondBtnAction))
         }
         
-        // show the alert
+        /// show the alert
         self.present(alert, animated: true, completion: nil)
     }
 }
