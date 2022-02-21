@@ -21,12 +21,12 @@ enum NetworkError: LocalizedError{
 }
 
 protocol NetworkServicesProtocol{
-    func fetchDataFor(scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void)
+    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void)
 }
 
 extension NetworkServicesProtocol{
-    func fetchDataFor(scheme: String = Constants.scheme, host: String, path: String, queryParams: [String: String] = [:], callBack: @escaping (Result<Data, NetworkError>) -> Void){
-        fetchDataFor(scheme: scheme, host: host, path: path, queryParams: queryParams, callBack: callBack)
+    func fetchData(for scheme: String = Constants.scheme, host: String, path: String, queryParams: [String: String] = [:], callBack: @escaping (Result<Data, NetworkError>) -> Void){
+        fetchData(for: scheme, host: host, path: path, queryParams: queryParams, callBack: callBack)
     }
 }
 
@@ -37,7 +37,7 @@ class NetworkServices: NetworkServicesProtocol{
         self.session = urlSession
     }
     
-    func fetchDataFor(scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void){
+    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void){
         guard let url = constructURL(scheme: scheme, host: host, path: path, queryParams: queryParams) else{
             callBack(.failure(.invalidURL(message: "Invalid URL")))
             return

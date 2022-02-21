@@ -17,7 +17,7 @@ final class CarMapViewModel: CarDisplayBaseViewModel, CarMapViewModelProtocol{
     // set the approximate radius for now
     private let focusRadius: CLLocationDistance = 5000
     
-    override init(networkServices: NetworkServices, delegate: CarDisplayViewModelDelegate){
+    override init(networkServices: NetworkServicesProtocol, delegate: CarDisplayViewModelDelegate){
         super.init(networkServices: networkServices, delegate: delegate)
     }
     

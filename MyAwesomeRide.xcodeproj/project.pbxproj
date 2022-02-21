@@ -31,6 +31,12 @@
 		51F09E2427C2CB4D005128B5 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E2327C2CB4D005128B5 /* MockData.swift */; };
 		51F09E2727C2CC37005128B5 /* CarModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E2627C2CC37005128B5 /* CarModelTests.swift */; };
 		51F09E2927C2D73A005128B5 /* CarAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E2827C2D73A005128B5 /* CarAnnotationTests.swift */; };
+		51F09E2C27C37460005128B5 /* CarDisplayBaseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E2B27C37460005128B5 /* CarDisplayBaseViewModelTests.swift */; };
+		51F09E2F27C375A8005128B5 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E2E27C375A8005128B5 /* NetworkMock.swift */; };
+		51F09E3127C37C12005128B5 /* CarListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E3027C37C12005128B5 /* CarListViewModelTests.swift */; };
+		51F09E3327C3845A005128B5 /* CarMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E3227C3845A005128B5 /* CarMapViewModelTests.swift */; };
+		51F09E3727C3897D005128B5 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E3627C3897D005128B5 /* MockURLProtocol.swift */; };
+		51F09E3927C389C7005128B5 /* NetworkServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F09E3827C389C7005128B5 /* NetworkServicesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,12 @@
 		51F09E2327C2CB4D005128B5 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		51F09E2627C2CC37005128B5 /* CarModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTests.swift; sourceTree = "<group>"; };
 		51F09E2827C2D73A005128B5 /* CarAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAnnotationTests.swift; sourceTree = "<group>"; };
+		51F09E2B27C37460005128B5 /* CarDisplayBaseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDisplayBaseViewModelTests.swift; sourceTree = "<group>"; };
+		51F09E2E27C375A8005128B5 /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
+		51F09E3027C37C12005128B5 /* CarListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModelTests.swift; sourceTree = "<group>"; };
+		51F09E3227C3845A005128B5 /* CarMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMapViewModelTests.swift; sourceTree = "<group>"; };
+		51F09E3627C3897D005128B5 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		51F09E3827C389C7005128B5 /* NetworkServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +143,8 @@
 		51F09DDE27C0C3F9005128B5 /* MyAwesomeRideTests */ = {
 			isa = PBXGroup;
 			children = (
+				51F09E3427C38919005128B5 /* Network */,
+				51F09E2A27C37437005128B5 /* ViewModel */,
 				51F09E2527C2CBB6005128B5 /* Model */,
 				51F09E2227C2CB16005128B5 /* Utility */,
 			);
@@ -218,6 +232,42 @@
 				51F09E2827C2D73A005128B5 /* CarAnnotationTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		51F09E2A27C37437005128B5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				51F09E2D27C37596005128B5 /* Mocks */,
+				51F09E2B27C37460005128B5 /* CarDisplayBaseViewModelTests.swift */,
+				51F09E3027C37C12005128B5 /* CarListViewModelTests.swift */,
+				51F09E3227C3845A005128B5 /* CarMapViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		51F09E2D27C37596005128B5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				51F09E2E27C375A8005128B5 /* NetworkMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		51F09E3427C38919005128B5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				51F09E3527C3895E005128B5 /* Mocks */,
+				51F09E3827C389C7005128B5 /* NetworkServicesTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		51F09E3527C3895E005128B5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				51F09E3627C3897D005128B5 /* MockURLProtocol.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,9 +397,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F09E3927C389C7005128B5 /* NetworkServicesTests.swift in Sources */,
 				51F09E2727C2CC37005128B5 /* CarModelTests.swift in Sources */,
 				51F09E2427C2CB4D005128B5 /* MockData.swift in Sources */,
 				51F09E2927C2D73A005128B5 /* CarAnnotationTests.swift in Sources */,
+				51F09E3327C3845A005128B5 /* CarMapViewModelTests.swift in Sources */,
+				51F09E2C27C37460005128B5 /* CarDisplayBaseViewModelTests.swift in Sources */,
+				51F09E2F27C375A8005128B5 /* NetworkMock.swift in Sources */,
+				51F09E3127C37C12005128B5 /* CarListViewModelTests.swift in Sources */,
+				51F09E3727C3897D005128B5 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -489,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

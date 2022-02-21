@@ -19,20 +19,20 @@ protocol CarDisplayBaseViewModelProtocol{
 }
 
 class CarDisplayBaseViewModel: CarDisplayBaseViewModelProtocol{
-    private let networkServices: NetworkServices
+    private let networkServices: NetworkServicesProtocol
     private let carAPIHost = "cdn.sixt.io"
     private let carAPIPath = "/codingtask/cars"
     private(set) var cars: [Car]?
     weak private(set) var delegate: CarDisplayViewModelDelegate?
     
-    init(networkServices: NetworkServices, delegate: CarDisplayViewModelDelegate){
+    init(networkServices: NetworkServicesProtocol, delegate: CarDisplayViewModelDelegate){
         self.networkServices = networkServices
         self.delegate = delegate
     }
     
     func fetchCars(){
         self.delegate?.showLoader()
-        self.networkServices.fetchDataFor(host: carAPIHost, path: carAPIPath) { [weak self](result) in
+        self.networkServices.fetchData(host: carAPIHost, path: carAPIPath) { [weak self](result) in
             guard let `self` = self else{
                 return
             }

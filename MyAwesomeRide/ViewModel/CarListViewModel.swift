@@ -16,7 +16,7 @@ protocol CarListViewModelProtocol: CarDisplayBaseViewModelProtocol{
 
 final class CarListViewModel: CarDisplayBaseViewModel, CarListViewModelProtocol{
 
-    override init(networkServices: NetworkServices, delegate: CarDisplayViewModelDelegate){
+    override init(networkServices: NetworkServicesProtocol, delegate: CarDisplayViewModelDelegate){
         super.init(networkServices: networkServices, delegate: delegate)
     }
     
