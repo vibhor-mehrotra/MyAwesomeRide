@@ -15,29 +15,34 @@ class CarDisplayBaseViewModelTests: XCTestCase {
     var fetchCarsFailureExpectation: XCTestExpectation!
     
     override func setUpWithError() throws {
+        try super.setUpWithError()
         mockNetworkServices = MockNetworkServices()
         sut = CarDisplayBaseViewModel(networkServices: mockNetworkServices, delegate: self)
     }
 
     override func tearDownWithError() throws {
+        try super.tearDownWithError()
         mockNetworkServices = nil
         fetchCarsSuccessExpectation = nil
         fetchCarsFailureExpectation = nil
         sut = nil
     }
 
-    func testFetchCarsSuccess() throws {
+    func testFetchCarsSuccess() {
         fetchCarsSuccessExpectation = expectation(description: "Test Fetch cars success expectations")
         mockNetworkServices.shouldTestSuccessCase = true
         sut.fetchCars()
         waitForExpectations(timeout: 1.0)
+        XCTAssertNotNil(sut.cars)
+        XCTAssert(sut.cars?.count == 28, "Cars list count not correct")
     }
     
-    func testFetchCarsFailure() throws {
+    func testFetchCarsFailure() {
         fetchCarsFailureExpectation = expectation(description: "Test Fetch cars failure expectations")
         mockNetworkServices.shouldTestSuccessCase = false
         sut.fetchCars()
         waitForExpectations(timeout: 1.0)
+        XCTAssertNil(sut.cars)
     }
 }
 

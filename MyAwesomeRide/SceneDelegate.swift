@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         /// Set up NetworkSession with custom urlSession. By using cache Directory in our custom urlSession, we make sure that the data won't be backed by iCloud / iTunes.
-        let networkServices = NetworkServices(urlSession: urlSession())
+        let networkServices = NetworkServices()
         
         /// Set up the Tab Bar Controller
         let tabBarController = UITabBarController()
@@ -28,15 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         window.makeKeyAndVisible()
-    }
-    
-    private func urlSession() -> URLSession{
-        let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-        let diskCacheURL = cachesURL.appendingPathComponent("DownloadCache")
-        let cache = URLCache(memoryCapacity: 10_000_000, diskCapacity: 1_000_000_000, directory: diskCacheURL)
-        let config = URLSessionConfiguration.default
-        config.urlCache = cache
-        return URLSession(configuration: config)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

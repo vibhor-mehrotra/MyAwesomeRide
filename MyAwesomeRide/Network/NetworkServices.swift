@@ -10,25 +10,24 @@ import Foundation
 /// Custom Error type for passing Network related errors
 enum NetworkError: LocalizedError{
     case invalidURL(message: String)
-    case noResponse(message: String)
     case invalidResponse(message: String)
     
     var errorDescription: String?{
         switch self{
-        case let .invalidURL(message), let .noResponse(message), let .invalidResponse(message):
+        case let .invalidURL(message), let .invalidResponse(message):
             return message
         }
     }
 }
 
 protocol NetworkServicesProtocol{
-    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void)
+    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String]) async throws -> Data
 }
 
 /// NetworkServicesProtocol extension to provide default implementation for scheme and queryParams
 extension NetworkServicesProtocol{
-    func fetchData(for scheme: String = Constants.scheme, host: String, path: String, queryParams: [String: String] = [:], callBack: @escaping (Result<Data, NetworkError>) -> Void){
-        fetchData(for: scheme, host: host, path: path, queryParams: queryParams, callBack: callBack)
+    func fetchData(for scheme: String = Constants.scheme, host: String, path: String, queryParams: [String: String] = [:]) async throws -> Data{
+        return try await fetchData(for: scheme, host: host, path: path, queryParams: queryParams)
     }
 }
 
@@ -39,34 +38,16 @@ class NetworkServices: NetworkServicesProtocol{
         self.session = urlSession
     }
     
-    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void){
+    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String]) async throws -> Data{
         guard let url = constructURL(scheme: scheme, host: host, path: path, queryParams: queryParams) else{
-            callBack(.failure(.invalidURL(message: "Invalid URL")))
-            return
+            throw NetworkError.invalidURL(message: "Invalid URL")
         }
-        Task.init{
-            await fetchData(url, callBack: callBack)
+        do{
+            let (data, _) = try await session.data(from: url)
+            return data
+        } catch {
+            throw NetworkError.invalidResponse(message: error.localizedDescription)
         }
-    }
-    
-    private func fetchData(_ url: URL, callBack: @escaping (Result<Data, NetworkError>) -> Void) async {
-        session.dataTask(with: url) { (data, response, error) -> Void in
-            if let _error = error{
-                DispatchQueue.main.async {
-                    callBack(.failure(.noResponse(message: _error.localizedDescription)))
-                }
-            } else {
-                if let _data = data{
-                    DispatchQueue.main.async {
-                        callBack(.success(_data))
-                    }
-                } else{
-                    DispatchQueue.main.async {
-                        callBack(.failure(.noResponse(message: "Response not in correct format")))
-                    }
-                }
-            }
-        }.resume()
     }
 }
 

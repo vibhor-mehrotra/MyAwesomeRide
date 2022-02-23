@@ -32,21 +32,19 @@ class CarDisplayBaseViewModel: CarDisplayBaseViewModelProtocol{
     
     func fetchCars(){
         self.delegate?.showLoader()
-        self.networkServices.fetchData(host: carAPIHost, path: carAPIPath) { [weak self](result) in
-            guard let `self` = self else{
-                return
-            }
-            self.delegate?.hideLoader()
-            switch result{
-            case .success(let data):
-                do{
-                    self.cars = try JSONDecoder().decode([Car].self, from: data)
+        Task {
+            do {
+                let data = try await networkServices.fetchData(host: carAPIHost, path: carAPIPath)
+                self.cars = try JSONDecoder().decode([Car].self, from: data)
+                await MainActor.run {
+                    self.delegate?.hideLoader()
                     self.delegate?.refreshScreen()
-                } catch let error{
+                }
+            } catch{
+                await MainActor.run {
+                    self.delegate?.hideLoader()
                     self.delegate?.showError(error.localizedDescription)
                 }
-            case .failure(let error):
-                self.delegate?.showError(error.localizedDescription)
             }
         }
     }

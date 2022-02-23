@@ -11,11 +11,11 @@ import Foundation
 class MockNetworkServices: NetworkServicesProtocol{
     var shouldTestSuccessCase = true
     
-    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String], callBack: @escaping (Result<Data, NetworkError>) -> Void){
+    func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String]) async throws -> Data{
         if shouldTestSuccessCase{
-            callBack(.success(MockData.fetchData(for: "Cars")))
+            return MockData.fetchData(for: "Cars")
         } else {
-            callBack(.failure(.noResponse(message: "For testing failure case")))
+            throw NetworkError.invalidResponse(message: "For testing failure case")
         }
     }
 }

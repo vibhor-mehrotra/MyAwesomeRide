@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyAwesomeCars_app_launch" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-6D-vF2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sedan" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-6D-vF2">
                                 <rect key="frame" x="87" y="389" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vN2-6D-vF2" secondAttribute="height" multiplier="15:8" id="IVw-xi-yfb"/>
@@ -47,7 +47,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MyAwesomeCars_app_launch" width="5000" height="5000"/>
+        <image name="sedan" width="1600" height="1200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

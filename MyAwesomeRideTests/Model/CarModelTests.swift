@@ -12,15 +12,17 @@ class CarModelTests: XCTestCase {
     var sut: [Car]!
     
     override func setUpWithError() throws {
+        try super.setUpWithError()
         sut = MockData.carsData
         continueAfterFailure = false
     }
 
     override func tearDownWithError() throws {
+        try super.tearDownWithError()
         sut = nil
     }
 
-    func testCarsData() throws {
+    func testCarsData() {
         XCTAssertNotNil(sut, "Cars data not correct")
         XCTAssert(sut.count == 28, "Cars list count not correct")
         let car = sut[0]
