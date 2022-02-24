@@ -20,6 +20,7 @@ enum NetworkError: LocalizedError{
     }
 }
 
+/// Protocol to help mock NeteorkServices
 protocol NetworkServicesProtocol{
     func fetchData(for scheme: String, host: String, path: String, queryParams: [String: String]) async throws -> Data
 }

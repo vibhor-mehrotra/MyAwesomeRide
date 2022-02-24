@@ -16,14 +16,10 @@ final class CarAnnotation: NSObject {
     init(with car: Car) {
         self.car = car
     }
-    
-    func configureImage(){
-        
-    }
 }
 
+// Mark: - Extension to implement MKAnnotation
 extension CarAnnotation: MKAnnotation {
-    
     var coordinate: CLLocationCoordinate2D {
         guard let lat = car.latitude, let long = car.longitude else {
             return CLLocationCoordinate2D()
