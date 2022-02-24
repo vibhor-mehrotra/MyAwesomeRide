@@ -21,13 +21,13 @@ I have used a custom MVVM architechture for this project. It is slightly differe
 
 ## Folder Strcuture
 
- -- MyAwesomeRide
-    -- Model
-    -- View
-    -- ViewModel
-    -- WireFrame
-    -- Network
-    -- Utility
+ -- MyAwesomeRide <br />
+    -- Model <br />
+    -- View <br />
+    -- ViewModel <br />
+    -- WireFrame <br />
+    -- Network <br />
+    -- Utility <br />
     
 ## Highlights
 
