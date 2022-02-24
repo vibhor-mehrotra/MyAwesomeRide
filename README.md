@@ -37,11 +37,11 @@ I have used a custom MVVM architechture for this project. It is slightly differe
         
 ## FAQ
 
-Q: What does SUT stand for in Unit test?
-A: SUT stands for System Under Test.
+Q: What does SUT stand for in Unit test? <br />
+A: SUT stands for System Under Test. <br />
 
 
-Q: Instead of directly using data(from: url) method of URLSession from two different places, why did you not use NetworkServices from within UIImageview+ImageServices to fetch image from URL?
+Q: Instead of directly using data(from: url) method of URLSession from two different places, why did you not use NetworkServices from within UIImageview+ImageServices to fetch image from URL? <br />
 A: Because I have created UIImageview+ImageServices as a reusable extension over ImageView and don't wish to tie it to a specific project. I could have injected NetworkServices() inside this extension but then it won't be easily reusable and we would have to always make sure that we inject a concrete implementation of NetworkServicesProtocol.
 
 If we plan on exporting this extension as a third party, this implementation would make it easy to use for all stakeholders 
