@@ -5,7 +5,7 @@ MyAwesomeRide is a simple application that shows cars in List and Map.
 
 ## Requirements
 
-Devices: iPhone
+Devices: iPhone <br />
 iOS Versions: iOS 15.0 and later
 
 
