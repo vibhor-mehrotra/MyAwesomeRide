@@ -22,12 +22,12 @@ I have used a custom MVVM architechture for this project. It is slightly differe
 ## Folder Strcuture
 
  -- MyAwesomeRide <br />
-    -- Model <br />
-    -- View <br />
-    -- ViewModel <br />
-    -- WireFrame <br />
-    -- Network <br />
-    -- Utility <br />
+    &emsp -- Model <br />
+    &emsp -- View <br />
+    &emsp -- ViewModel <br />
+    &emsp -- WireFrame <br />
+    &emsp -- Network <br />
+    &emsp -- Utility <br />
     
 ## Highlights
 
