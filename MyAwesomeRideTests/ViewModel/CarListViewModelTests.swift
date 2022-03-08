@@ -29,10 +29,7 @@ class CarListViewModelTests: XCTestCase {
         testTableViewDataSourceExpectation = nil
         testTableViewDataSourceFailureExpectation = nil
     }
-
-    func testNumberOfSections() {
-        XCTAssert(sut.numberOfSections() == 1, "Number of sections not correct")
-    }
+    
     
     func testNumberOfRowsInSection() {
         testTableViewDataSourceExpectation = expectation(description: "number of rows in section")

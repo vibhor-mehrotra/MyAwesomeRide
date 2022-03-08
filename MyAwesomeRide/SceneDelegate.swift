@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        /// Set up NetworkSession with custom urlSession. By using cache Directory in our custom urlSession, we make sure that the data won't be backed by iCloud / iTunes.
+        /// Set up NetworkSession with custom urlSession if needed. By using cache Directory in our custom urlSession, we make sure that the data won't be backed by iCloud / iTunes. For now, we are using default URLSession.
         let networkServices = NetworkServices()
         
         /// Set up the Tab Bar Controller

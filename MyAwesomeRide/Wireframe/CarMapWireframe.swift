@@ -8,7 +8,7 @@
 import UIKit
 
 final class CarMapWireframe{
-    static func carMapVC(with networkServices: NetworkServices) -> CarMapVC{
+    static func carMapVC(with networkServices: NetworkServices) -> UIViewController{
         
         /// Instantiate VC
         let mapVC = (Constants.mainStoryboard.instantiateViewController(withIdentifier: CarMapVC.storyboardID) as! CarMapVC)

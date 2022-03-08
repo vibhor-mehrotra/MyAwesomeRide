@@ -8,7 +8,7 @@
 import UIKit
 
 final class CarListWireframe{
-    static func carListVC(with networkServices: NetworkServices) -> CarListVC{
+    static func carListVC(with networkServices: NetworkServices) -> UIViewController{
         
         /// Instantiate VC
         let listVC = (Constants.mainStoryboard.instantiateViewController(withIdentifier: CarListVC.storyboardID) as! CarListVC)
